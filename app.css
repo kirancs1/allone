@@ -1,0 +1,52 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: white;
+   }
+   .form {
+    padding: 16px;
+    margin: 16px;
+    border-style: solid;
+    border-color: white;
+    background-color: white;
+    box-shadow: 0px 0px 5px 0px black;
+   }
+   label {
+    display: block;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(35, 18, 65);
+    font-size: 12px;
+    font-weight: 550;
+    line-height: 20px;
+}
+input {
+ border-color: black;
+ border-radius: 5px;
+ font-family: 'Times New Roman', Times, serif;
+ background-color: rgb(244, 240, 240);
+}
+#btn {
+ margin-top: 15px;
+ color: white;
+ border-style: double;
+ border-color: #2b2dd1;
+ background-color: #2b2dd1;
+ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ padding: 10px 20px;
+ cursor: pointer;
+}
+div #d1 {
+ text-align: center;
+ color: #080939;
+ font-family: 'Times New Roman', Times, serif;
+ font-weight: 850;
+ margin-bottom: 15px;
+ font-size: 23px;
+}
+div #success p {
+ text-align: center;
+ padding-right: 0px;
+ color: rgb(34, 8, 86);
+ font-family: 'Times New Roman', Times, serif;
+ font-weight: 600;
+}
