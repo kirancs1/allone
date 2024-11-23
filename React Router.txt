@@ -1,0 +1,133 @@
+React Router....
+
+
+Componet/About.js:-
+
+	import React from 'react';
+	function About () {
+	return (
+	<div>
+	<h2>About Page</h2>
+	<p>This is the About Page. </p>
+	</div>
+	);
+	}
+	export default About;
+
+
+
+Componet/Contact.js:-
+	import React from 'react';
+	function Contact () {
+	return (
+	<div>
+	<h2>Contact Page</h2>
+	<p>Contact us at example@example.com. </p>
+	</div>
+	);
+	}
+	export default Contact;
+
+
+Componet/Home.js:-
+	import React from 'react';
+	function Home () {
+	return (
+	<div>
+	<h2>Home Page</h2>
+	<p>Welcome to the Home Page! </p>
+	</div>
+	);
+	}
+ 	export default Home;
+
+
+
+
+App.js:-
+
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import './App.css';
+import Home from './Component/Home.js';
+import About from './Component/About.js';
+import Contact from './Component/Contact.js';
+function App() {
+ return (
+ <Router>
+ <div>
+ <nav>
+ <ul>
+ <li><Link to="/">Home</Link></li>
+ <li><Link to="/About">About</Link></li>
+ <li><Link to="/Contact">Contact</Link></li>
+ </ul>
+ </nav>
+ <Routes>
+ <Route path="/" element={<Home />} />
+ <Route path="/About" element={<About />} />
+ <Route path="/Contact" element={<Contact />} />
+ </Routes>
+ </div>
+ </Router>
+ );
+}
+
+export default App;
+
+
+
+
+App.css:-
+
+body {
+ font-family: 'Times New Roman', Times, serif;
+ margin: 0;
+ padding: 0;
+ background-color: #d5d2d2;
+}
+h2 {
+ color: #333;
+}
+p {
+ font-size: 1.1em;
+ text-align: left;
+ color: #831e1e;
+}
+/* Navigation styles */
+nav {
+ background-color: #333;
+ padding: 10px;
+}
+nav ul {
+ list-style: none;
+ padding: 0;
+ margin: 0;
+ display: flex;
+}
+nav ul li {
+ margin-right: 20px;
+}
+nav ul li a {
+ color: white;
+ text-decoration: none;
+ font-weight: bold;
+}
+nav ul li a:hover {
+ text-decoration: underline;
+}
+/* Page content styles */
+div {
+ padding: 20px;
+}
+div h2 {
+ border-bottom: 2px solid #333;
+ padding-bottom: 10px;
+ margin-bottom: 10px;
+}
+div p {
+ line-height: 1.6;
+}
+
+
+
