@@ -1,0 +1,140 @@
+Product Catalogue in single page.......
+
+
+
+Component/ProductCatalog.js:-
+import React, { useState } from 'react';
+export default function ProductCatalog() {
+ const [pname, setPname] = useState("");
+ const [pprice, setPprice] = useState("");
+ const [pdescription, setPdescription] = useState("");
+ const [submit, setSubmit] = useState(false);
+ function handlePname(e) {
+ setPname(e.target.value);
+ }
+ function handlePprice(e) {
+ setPprice(e.target.value);
+ }
+ function handlePdescription(e) {
+ setPdescription(e.target.value);
+ }
+ function handleSubmit(e) {
+ e.preventDefault();
+ console.log("Product Name:", pname);
+ console.log("Product Price:", pprice);
+ console.log("Product Description:", pdescription);
+ console.log(`Product ${pname} added`);
+ 
+ setSubmit(true);
+ clearAll();
+ }
+function clearAll() {
+ setPname("");
+ setPprice("");
+ setPdescription("");
+ }
+ function successMessage() {
+ if (submit) {
+ return (
+ <div>
+ <p id="p">Product added successfully!</p>
+ </div>
+ );
+ }
+ }
+ return (
+ <>
+ <h1>Product Catalog</h1>
+ <div className="form">
+ <form onSubmit={handleSubmit}>
+ <label htmlFor="ProductName">Product Name:</label>
+<input type="text" id="name" name="ProductName" value={pname} 
+onChange={handlePname} required /><br />
+ <label htmlFor="ProductPrice">Product Price:</label>
+<input type="number" id="price" name="ProductPrice" value={pprice} 
+onChange={handlePprice} required /><br />
+ <label htmlFor="ProductDescription">Product Description:</label>
+<input type="text" id="description" name="ProductDescription" 
+value={pdescription} onChange={handlePdescription} required /><br />
+ <button id="btn" type="submit">Add Product</button>
+ </form>
+ </div>
+ <div id="d1">
+ {successMessage()}
+ </div>
+ </>
+ );
+}
+
+
+
+App.css:-
+
+body {
+ padding: 0;
+ margin: 0;
+ background-color: bisque;
+}
+h1 {
+ text-align: center;
+ font-variant: small-caps;
+ text-shadow: 0px 1px;
+ color: rgb(85, 85, 156);
+ font-family: 'Times New Roman', Times, serif;
+}
+.form {
+ padding: 16px;
+ margin: 16px;
+ border-style: solid;
+ border-color: white;
+ background-color: white;
+ box-shadow: 0px 0px 3px 0px black;
+}
+label {
+ display: block;
+ font-family: 'Times New Roman', Times, serif;
+ color: green;
+ font-size: 12px;
+ font-weight: 550;
+ line-height: 30px;
+}
+input {
+ border-color: black;
+ border-radius: 3px;
+ background-color: rgb(244, 240, 240);
+ font-family: 'Times New Roman', Times, serif;
+ padding: 5px;
+ margin-bottom: 10px;
+}
+button {
+ padding: 3px 20px;
+ margin-top: 15px;
+ color: white;
+ border-style: double;
+ border-color: #e17435;
+ background-color: #e17435;
+ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ cursor: pointer;
+}
+div #d1 {
+ text-align: center;
+ color: rgb(85, 50, 156);
+ font-family: 'Times New Roman', Times, serif;
+ font-weight: 750;
+ margin-top: 15px;
+}
+
+
+
+App.js:-
+
+import React from 'react';
+import './App.css';
+import ProductCatalog from './Component/ProductCatalog.js';
+export default function App() {
+ return (
+ <div>
+ <ProductCatalog />
+ </div>
+ );
+}
