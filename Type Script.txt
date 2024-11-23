@@ -3,7 +3,7 @@ Type Script...
 While Loop:-
 
 let count: number = 1;
-while (count <= 5)
+while (count <= 5){
 	console.log("while loop count: ${count}" );
 	count++;
 }
