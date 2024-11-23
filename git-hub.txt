@@ -1,0 +1,37 @@
+git-hub...
+
+Terminal:-
+
+1. git config --global user.name "kirancs1"
+2. git config --global user.email "computerscience18718@gmail.com"
+3. git clone "Paste the Repository Name"
+4. git init
+5. create a new file in any programing and enter the code...
+6. cd "repository_name"
+7. git init
+8. git status
+9. git add .
+10. git commit -m "index"
+11. git push origin main
+* Go to the crome browser check the file.
+* update the eny code.
+* Go to vs code
+12. git pull origin main
+13. git checkout
+14. git checkout -b master1
+* create a one file in any programing and enter the code..
+15. cd "repository_name"
+16. git init
+17. git status
+18. git add .
+19. git commit -m "detail"
+20. git push origin master1
+* Go to the crome browser check the branch & file..
+* Merge to 2 branch
+* After Go to vs code
+21. git checkout main
+22. git checkout master1
+23. git merge master1
+24. git diff master1
+25. git diff main...............
+
