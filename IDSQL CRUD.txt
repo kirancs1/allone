@@ -1,0 +1,121 @@
+IdSql in crud operation.....
+
+controller:-Mycontroller
+
+package com.example.idsql.controller;
+
+@RestController
+public class Mycontroller {
+
+	 @Autowired
+	 Myrepo obj;
+	 @PostMapping("/post")
+	 public String saveRecord(Myentity db)
+	 {
+		 obj.save(db);
+		 return "Inserted";
+		 
+	 }
+
+	 @GetMapping("/get")
+	 public List<Myentity> getv()
+	 {
+		 return obj.findAll();
+	 }
+
+	 @PutMapping("/update/{id}")
+	 public String getput(@PathVariable int id , @RequestBody Myentity d){
+		 
+			 
+			Myentity u=obj.findById(id).orElse(null);
+			 if (u!=null)
+			 {
+				 u.setSname(d.getSname());
+				 obj.save(u);
+				 return "updated";
+						 
+			 }
+			 else
+			 {
+				 return "id not found";
+			 }
+			 }
+	 
+		 
+		 @DeleteMapping("/del/{id}")
+		 public String delete(@PathVariable int id) 
+		 {
+		 if (obj.existsById(id))
+		 {
+			obj.deleteById(id); 
+			 return "deleted";
+		 }
+		 else
+		 {
+			 return "id not found";
+		 }
+	 }			 
+}	 
+
+
+
+Entity:-Myentity
+package com.example.idsql.entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="student")
+public class Myentity {
+	
+	@Id
+	private int sid;
+	@Column (name="sname")
+	private String sname;
+	public int getSid() {
+		return sid;
+	}
+	public void setSid(int sid) {
+		this.sid = sid;
+	}
+	public String getSname() {
+		return sname;
+	}
+	public void setSname(String sname) {
+		this.sname = sname;
+	}
+
+}
+
+
+
+Repo:-Myrepo
+
+package com.example.idsql.repo;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.idsql.entity.Myentity;
+
+public interface Myrepo extends JpaRepository<Myentity,Integer> {
+
+}
+
+
+
+APPLICATION PROPERTIES....
+1.spring.application.name=idsql
+2.spring.datasource.url=jdbc:mysql://localhost/college
+3.server.port=8081
+4.spring.datasource.username=root
+5.spring.datasource.password=Kiru@123
+6.spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+7.spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+
+	 
+	 
+	 
+
